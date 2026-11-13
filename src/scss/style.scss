@@ -1,0 +1,13 @@
+// lib
+@use "./lib/modern-normalize.scss";
+@use "./lib/fontello.scss";
+
+// base
+@use "./base/base.scss";
+
+// components
+@use "./components/main-screen.scss";
+@use "./components/header.scss";
+
+// utils
+@use "./utils/carriage.scss";
