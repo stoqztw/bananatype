@@ -1,9 +1,8 @@
 "use strict";
 
 import { listOfText } from "./ListOfTextForTest/listOfText";
-import { MainText } from "./pasteText";
+import { TypingEngine } from "./typing-trainer/typing-engine";
 
 window.addEventListener("DOMContentLoaded", () => {
-	const text = new MainText(listOfText, "[data-text]");
-	console.log(text.generate());
+	const text = new TypingEngine(listOfText);
 });
