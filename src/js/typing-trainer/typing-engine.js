@@ -1,6 +1,12 @@
+import { isString } from "../utils/is-string";
+
 export class TypingEngine {
 	constructor(text, usePunctuationMarks = true) {
-		this.text = ;
+		if (!isString(text)) {
+			throw new Error("Invalid data type, it must be a string");
+		}
+
+		this.text = text;
 		this.usePunctuationMarks = usePunctuationMarks;
 		this.index = 0;
 	}
