@@ -1,0 +1,5 @@
+@mixin smooth-background {
+	backdrop-filter: blur(3px);
+	background-color: rgba(0, 0, 0, 0);
+	z-index: 999;
+}

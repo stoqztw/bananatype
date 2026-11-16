@@ -1,9 +1,13 @@
+import { errors } from "../errors/errors";
 import { isString } from "../utils/is-string";
 
 export class TypingEngine {
 	constructor(text, usePunctuationMarks = true) {
 		if (!isString(text)) {
-			throw new Error("Invalid data type, it must be a string");
+			const error = new Error(errors.ERROR_INVALID_TYPE.forDev);
+			error.userMessage = errors.ERROR_INVALID_TYPE.forUser;
+
+			throw error;
 		}
 
 		this.text = text;

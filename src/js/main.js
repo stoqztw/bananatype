@@ -1,11 +1,19 @@
 "use strict";
 
-import { listOfText } from "./typing-trainer/list-of-texts";
+import { Notification } from "./notification/notification";
 import { TypingEngine } from "./typing-trainer/typing-engine";
 
 window.addEventListener("DOMContentLoaded", () => {
-	// const text = new TypingEngine(listOfText[2], false);
-	const text = new TypingEngine(1, false);
-	console.log(text.getCharactersList());
-	console.log(text.getWordsList());
+	try {
+		// const text = new TypingEngine(listOfText[2], false);
+		const text = new TypingEngine(1, false);
+
+		console.log(text.getCharactersList());
+		console.log(text.getWordsList());
+	} catch (error) {
+		console.error(error.message);
+
+		const notification = new Notification(error.userMessage);
+		notification.show();
+	}
 });
