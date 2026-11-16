@@ -1,6 +1,6 @@
 export class TypingEngine {
 	constructor(text, usePunctuationMarks = true) {
-		this.text = text;
+		this.text = ;
 		this.usePunctuationMarks = usePunctuationMarks;
 		this.index = 0;
 	}
