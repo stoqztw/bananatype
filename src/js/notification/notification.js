@@ -20,5 +20,7 @@ export class Notification {
 		document.body.prepend(this.notificationElement);
 	}
 
-	clear() {}
+	clear() {
+		this.notificationElement.remove();
+	}
 }
