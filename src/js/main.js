@@ -5,8 +5,11 @@ import { TypingEngine } from "./typing-trainer/typing-engine";
 
 window.addEventListener("DOMContentLoaded", () => {
 	try {
-		// const text = new TypingEngine(listOfText[2], false);
-		const text = new TypingEngine(1, false);
+		// FOR TEST WITHOUT ERRORS
+		const text = new TypingEngine(listOfText[2], false);
+
+		// FOR TEST WITH ERRORS
+		// const text = new TypingEngine(1, false);
 
 		console.log(text.getCharactersList());
 		console.log(text.getWordsList());

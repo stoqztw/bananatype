@@ -1,38 +1,39 @@
-import { errors } from "../errors/errors";
+import { AppError } from "../errors/app-error";
 import { isString } from "../utils/is-string";
 
 export class TypingEngine {
-  constructor(text, usePunctuationMarks = true) {
-    if (!isString(text)) {
-      const error = new Error(errors.ERROR_INVALID_TYPE.forDev);
-      error.userMessage = errors.ERROR_INVALID_TYPE.forUser;
+	constructor(text, usePunctuationMarks = true) {
+		if (!isString(text)) {
+			const appError = new AppError(
+				"Failed to load text for test. Check your internet connection and refresh the page.",
+				"Invalid data type, it must be a string",
+			);
 
-      throw error;
-    }
+			throw appError;
+		}
 
-    this.text = text;
-    this.usePunctuationMarks = usePunctuationMarks;
-    this.index = 0;
-  }
+		this.text = text;
+		this.usePunctuationMarks = usePunctuationMarks;
+		this.index = 0;
+	}
 
-  getCharactersList() {
-    if (!this.usePunctuationMarks) {
-      this.text = this.text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "");
-    }
+	getCharactersList() {
+		if (!this.usePunctuationMarks) {
+			this.text = this.text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "");
+		}
 
-    const characterList = this.text.split("");
+		const characterList = this.text.split("");
 
-    return characterList;
-  }
+		return characterList;
+	}
 
-  getWordsList() {
-    const wordsList = this.text
-      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "")
-      .split(" ");
+	getWordsList() {
+		const wordsList = this.text
+			.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "")
+			.split(" ");
 
-    return wordsList;
-  }
+		return wordsList;
+	}
 
-  checkCharacter() {
-  }
+	checkCharacter() {}
 }
