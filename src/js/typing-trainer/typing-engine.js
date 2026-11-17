@@ -2,7 +2,7 @@ import { AppError } from "../errors/app-error";
 import { isString } from "../utils/is-string";
 
 export class TypingEngine {
-	constructor(text, usePunctuationMarks = true) {
+	constructor(text, usedPunctuationMarks = true) {
 		if (!isString(text)) {
 			const appError = new AppError(
 				"Failed to load text for test. Check your internet connection and refresh the page.",
@@ -13,12 +13,12 @@ export class TypingEngine {
 		}
 
 		this.text = text;
-		this.usePunctuationMarks = usePunctuationMarks;
+		this.usedPunctuationMarks = usedPunctuationMarks;
 		this.index = 0;
 	}
 
 	getCharactersList() {
-		if (!this.usePunctuationMarks) {
+		if (!this.usedPunctuationMarks) {
 			this.text = this.text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "");
 		}
 

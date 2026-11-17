@@ -1,5 +1,6 @@
 "use strict";
 
+import { AppError } from "./errors/app-error";
 import { Notification } from "./notification/notification";
 import { TypingEngine } from "./typing-trainer/typing-engine";
 
@@ -13,10 +14,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		console.log(text.getCharactersList());
 		console.log(text.getWordsList());
-	} catch (error) {
-		console.error(error.message);
+	} catch (appError) {
+		const notification = new Notification();
 
-		const notification = new Notification(error.userMessage);
-		notification.show();
+		if (appError instanceof AppError) {
+			console.error(appError.getDevMessage());
+			notification.show(appError.getUserMessage());
+		} else {
+			console.error(appError);
+			notification.show("Server side error!");
+		}
 	}
 });

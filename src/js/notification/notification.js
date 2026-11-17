@@ -1,19 +1,19 @@
 export class Notification {
 	constructor(errorMessage, notificationClassName = "notification") {
-		this.errorMessage = errorMessage;
+		// this.errorMessage = errorMessage;
 		this.notificationClassName = notificationClassName;
 		this.notificationElement = document.createElement("div");
 		this.notificationCloseButton = document.createElement("button");
 	}
 
-	show() {
+	show(errorMessage) {
 		this.notificationElement.classList.add(this.notificationClassName);
 		this.notificationCloseButton.classList.add(
 			`${this.notificationClassName}__close`,
 		);
 
 		this.notificationElement.innerHTML = `
-			<p>${this.errorMessage}</p>
+			<p>${errorMessage}</p>
 			<button class="notification__close">&#10006;</button>
 		`;
 
