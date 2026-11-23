@@ -1,36 +1,36 @@
 @use "../base/variables.scss" as *;
 
 .notification {
-	margin: 82px 22px;
-	padding: 15px;
-	max-width: 350px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	border: 3px solid $error-dark-color;
-	border-radius: 12px;
-	background-color: $error-light-color;
-	color: black;
-	font-weight: 600;
-	font-size: 16px;
+  margin: 82px 22px;
+  padding: 15px;
+  max-width: 350px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 3px solid $error-dark-color;
+  border-radius: 12px;
+  background-color: $error-light-color;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
 
-	&__close {
-		padding: 0;
-		margin: 0;
-		padding-left: 1px;
-		position: absolute;
-		top: -16px;
-		right: -16px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 26px;
-		height: 26px;
-		font-size: 22px;
-		color: $dark-color;
-		border: 1px solid $yellow-color;
-		border-radius: 100%;
-		background-color: $light-color;
-		cursor: pointer;
-	}
+  &__close {
+    padding: 0;
+    margin: 0;
+    padding-left: 1px;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    font-size: 22px;
+    color: $dark-color;
+    border: 1px solid $yellow-color;
+    border-radius: 100%;
+    background-color: $light-color;
+    cursor: pointer;
+  }
 }

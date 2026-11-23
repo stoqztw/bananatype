@@ -1,3 +1,7 @@
 export function isString(str) {
-	return typeof str === "string" ? true : false;
+  if (typeof str !== "string") {
+    return false;
+  }
+
+  return true;
 }
