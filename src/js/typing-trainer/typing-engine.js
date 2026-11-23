@@ -1,5 +1,6 @@
 import { AppError } from "../errors/app-error";
 import { isString } from "../utils/is-string";
+import { removeCharacters } from "../utils/remove-characters";
 
 export class TypingEngine {
   constructor(text, usedPunctuationMarks = true) {
@@ -12,10 +13,8 @@ export class TypingEngine {
       throw appError;
     }
 
-    this.text = usedPunctuationMarks
-      ? text.replace(/[^A-Za-z,.:;!?'"-]/g, "").trim()
-      : text.replace(/[^A-Za-z]/g, "").trim();
     this.usedPunctuationMarks = usedPunctuationMarks;
+    this.text = removeCharacters(text, this.usedPunctuationMarks);
     this.index = 0;
   }
 
@@ -26,9 +25,7 @@ export class TypingEngine {
   }
 
   getWordsList() {
-    const wordsList = this.text
-      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, "")
-      .split(" ");
+    const wordsList = removeCharacters(this.text, false).split(" ");
 
     return wordsList;
   }
