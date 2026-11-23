@@ -46,4 +46,8 @@ export class TypingEngine {
 
     return false;
   }
+
+  getIndex() {
+    return this.index;
+  }
 }
