@@ -15,13 +15,12 @@ export class TypingEngine {
 
     this.usedPunctuationMarks = usedPunctuationMarks;
     this.text = removeCharacters(text, this.usedPunctuationMarks);
+    this.characterList = this.text.split("");
     this.index = 0;
   }
 
   getCharactersList() {
-    const characterList = this.text.split("");
-
-    return characterList;
+    return this.characterList;
   }
 
   getWordsList() {
@@ -35,6 +34,16 @@ export class TypingEngine {
       return;
     }
 
-    return;
+    if (index >= this.text.length) {
+      this.index = 0;
+    }
+
+    if (character === this.characterList[this.index]) {
+      this.index++;
+
+      return true;
+    }
+
+    return false;
   }
 }

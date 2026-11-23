@@ -9,12 +9,10 @@ window.addEventListener("DOMContentLoaded", () => {
   try {
     // FOR TEST WITHOUT ERRORS
     // const text = new TypingEngine(listOfText[0], false);
-    const text = new TypingEngine(
-      `Order #408-A/B: status — 'In Progress' (updated 11/23/2026 at 14:18).
-Client: user_name@example.com | Phone: +1 (555) 123-45-67; ext. code:: *100#.`,
-      true,
-    );
+    const text = new TypingEngine(`test text`, true);
     console.log(text);
+    console.log(text.checkCharacter("t"));
+    console.log(text.checkCharacter("e"));
 
     // FOR TEST WITH ERRORS
     // const text = new TypingEngine(1, false);
