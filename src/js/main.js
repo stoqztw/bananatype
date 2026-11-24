@@ -9,10 +9,8 @@ window.addEventListener("DOMContentLoaded", () => {
   try {
     // FOR TEST WITHOUT ERRORS
     // const text = new TypingEngine(listOfText[0], false);
-    const text = new TypingEngine(`test text`, true);
+    const text = new TypingEngine(`test`, true);
     console.log(text);
-    console.log(text.checkCharacter("t"));
-    console.log(text.checkCharacter("e"));
 
     // FOR TEST WITH ERRORS
     // const text = new TypingEngine(1, false);

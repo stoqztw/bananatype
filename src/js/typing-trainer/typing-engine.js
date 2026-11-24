@@ -25,16 +25,14 @@ export class TypingEngine {
 
   getWordsList() {
     const wordsList = removeCharacters(this.text, false).split(" ");
-
     return wordsList;
   }
-
   checkCharacter(character) {
     if (!isString(character)) {
       return;
     }
 
-    if (index >= this.text.length) {
+    if (this.index >= this.text.length) {
       this.index = 0;
     }
 
@@ -48,6 +46,6 @@ export class TypingEngine {
   }
 
   getIndex() {
-    return this.index;
+    return `${this.index}, ${this.text.length}`;
   }
 }
