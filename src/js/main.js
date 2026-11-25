@@ -4,19 +4,19 @@ import { AppError } from "./errors/app-error";
 import { Notification } from "./notification/notification";
 import { listOfText } from "./typing-trainer/list-of-texts";
 import { TypingEngine } from "./typing-trainer/typing-engine";
+import { TypingRender } from "./typing-trainer/typing-render";
 
 window.addEventListener("DOMContentLoaded", () => {
   try {
     // FOR TEST WITHOUT ERRORS
     // const text = new TypingEngine(listOfText[0], false);
-    const text = new TypingEngine(`test`, true);
-    console.log(text);
+    const text = new TypingEngine(`ABABAB,,`, true);
+    const typingRender = new TypingRender(
+      text.getCharactersList(),
+      "[data-text]",
+    );
 
-    // FOR TEST WITH ERRORS
-    // const text = new TypingEngine(1, false);
-
-    console.log(text.getCharactersList());
-    console.log(text.getWordsList());
+    typingRender.render();
   } catch (appError) {
     const notification = new Notification();
 

@@ -1,9 +1,14 @@
 export class TypingRender {
-  constructor(text, containerClassName) {
-    this.text = text;
-    this.container = document.querySelector(containerClassName);
+  constructor(characterList, container) {
+    this.characterList = characterList;
+    this.container = document.querySelector(container);
   }
 
-  render() {}
-}
+  render() {
+    this.container.innerHTML = "";
 
+    this.characterList.forEach((character) => {
+      this.container.innerHTML += `<span>${character}</span>`;
+    });
+  }
+}
