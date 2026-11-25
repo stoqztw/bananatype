@@ -10,7 +10,10 @@ window.addEventListener("DOMContentLoaded", () => {
 	try {
 		// FOR TEST WITHOUT ERRORS
 		// const text = new TypingEngine(listOfText[0], false);
-		const text = new TypingEngine(`ABABAB,,`, true);
+		const text = new TypingEngine(
+			`adhfj hdjfh ajshdf hasjkdh fjahsd jfhjasdh fhas jdhfjh asjkdhf jhasjdh jahsd fasdh asl hlah h lhalh flah sdhh`,
+			true,
+		);
 		const typingRender = new TypingRender(
 			text.getCharactersList(),
 			"[data-text]",
@@ -21,6 +24,8 @@ window.addEventListener("DOMContentLoaded", () => {
 		window.addEventListener("keydown", (e) => {
 			// for take key use e.key
 			const key = e.key;
+
+			console.log(key);
 
 			if (text.checkCharacter(key)) {
 				console.log(1);
