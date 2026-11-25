@@ -27,6 +27,7 @@ export class TypingEngine {
     const wordsList = removeCharacters(this.text, false).split(" ");
     return wordsList;
   }
+
   checkCharacter(character) {
     if (!isString(character)) {
       return;

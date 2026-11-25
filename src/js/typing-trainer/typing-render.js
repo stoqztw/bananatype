@@ -1,9 +1,9 @@
 export class TypingRender {
-	constructor() {
+  constructor(text, containerClassName) {
+    this.text = text;
+    this.container = document.querySelector(containerClassName);
+  }
 
-	}
-
-	render() {
-		
-	}
+  render() {}
 }
+
