@@ -7,25 +7,34 @@ import { TypingEngine } from "./typing-trainer/typing-engine";
 import { TypingRender } from "./typing-trainer/typing-render";
 
 window.addEventListener("DOMContentLoaded", () => {
-  try {
-    // FOR TEST WITHOUT ERRORS
-    // const text = new TypingEngine(listOfText[0], false);
-    const text = new TypingEngine(`ABABAB,,`, true);
-    const typingRender = new TypingRender(
-      text.getCharactersList(),
-      "[data-text]",
-    );
+	try {
+		// FOR TEST WITHOUT ERRORS
+		// const text = new TypingEngine(listOfText[0], false);
+		const text = new TypingEngine(`ABABAB,,`, true);
+		const typingRender = new TypingRender(
+			text.getCharactersList(),
+			"[data-text]",
+		);
 
-    typingRender.render();
-  } catch (appError) {
-    const notification = new Notification();
+		typingRender.render();
 
-    if (appError instanceof AppError) {
-      console.error(appError.getDevMessage());
-      notification.show(appError.getUserMessage());
-    } else {
-      console.error(appError);
-      notification.show("Server side error!");
-    }
-  }
+		window.addEventListener("keydown", (e) => {
+			// for take key use e.key
+			const key = e.key;
+
+			if (text.checkCharacter(key)) {
+				console.log(1);
+			}
+		});
+	} catch (appError) {
+		const notification = new Notification();
+
+		if (appError instanceof AppError) {
+			console.error(appError.getDevMessage());
+			notification.show(appError.getUserMessage());
+		} else {
+			console.error(appError);
+			notification.show("Server side error!");
+		}
+	}
 });
