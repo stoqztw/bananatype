@@ -1,3 +1,3 @@
 export function show(element, showClassName) {
-	pauseScreen.classList.add(`${showClassName}`);
+	element.classList.add(`${showClassName}`);
 }

@@ -5,8 +5,9 @@ import { Notification } from "./notification/notification";
 import { listOfText } from "./typing-trainer/list-of-texts";
 import { TypingEngine } from "./typing-trainer/typing-engine";
 import { TypingRender } from "./typing-trainer/typing-render";
+import { hide } from "./utils/hide";
 import { isActive } from "./utils/is-active";
-import { showPause } from "./utils/show";
+import { show } from "./utils/show";
 
 window.addEventListener("DOMContentLoaded", () => {
 	try {
@@ -21,6 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			"[data-text]",
 		);
 		const pauseScreen = document.querySelector(".main-screen__pause");
+		console.log(pauseScreen);
 
 		typingRender.render();
 
@@ -47,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			if (!isActive("textarea")) {
 				show(pauseScreen, "show-flex");
 			} else {
-				(pauseScreen, "show-flex");
+				hide(pauseScreen, "show-flex");
 			}
 		});
 	} catch (appError) {
