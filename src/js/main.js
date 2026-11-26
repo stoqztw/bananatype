@@ -5,6 +5,7 @@ import { Notification } from "./notification/notification";
 import { listOfText } from "./typing-trainer/list-of-texts";
 import { TypingEngine } from "./typing-trainer/typing-engine";
 import { TypingRender } from "./typing-trainer/typing-render";
+import { isActive } from "./utils/is-active";
 
 window.addEventListener("DOMContentLoaded", () => {
 	try {
@@ -18,6 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			text.getCharactersList(),
 			"[data-text]",
 		);
+		const pauseScreen = document.querySelector(".main-screen__pause");
 
 		typingRender.render();
 
@@ -33,8 +35,10 @@ window.addEventListener("DOMContentLoaded", () => {
 		});
 
 		setInterval(() => {
-			if (document.activeElement === document.querySelector("textarea")) {
-				console.log(1);
+			if (!isActive("textarea")) {
+				pauseScreen.classList.add("show-flex");
+			} else {
+				pauseScreen.classList.remove("show-flex");
 			}
 		}, 1000);
 	} catch (appError) {
