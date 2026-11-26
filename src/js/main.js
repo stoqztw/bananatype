@@ -31,6 +31,12 @@ window.addEventListener("DOMContentLoaded", () => {
 				console.log(1);
 			}
 		});
+
+		setInterval(() => {
+			if (document.activeElement === document.querySelector("textarea")) {
+				console.log(1);
+			}
+		}, 1000);
 	} catch (appError) {
 		const notification = new Notification();
 
