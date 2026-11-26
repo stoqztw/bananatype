@@ -6,6 +6,7 @@ import { listOfText } from "./typing-trainer/list-of-texts";
 import { TypingEngine } from "./typing-trainer/typing-engine";
 import { TypingRender } from "./typing-trainer/typing-render";
 import { isActive } from "./utils/is-active";
+import { showPause } from "./utils/show";
 
 window.addEventListener("DOMContentLoaded", () => {
 	try {
@@ -34,13 +35,21 @@ window.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 
-		setInterval(() => {
+		// setInterval(() => {
+		// 	if (!isActive("textarea")) {
+		// 		pauseScreen.classList.add("show-flex");
+		// 	} else {
+		// 		pauseScreen.classList.remove("show-flex");
+		// 	}
+		// }, 1000);
+		//
+		window.addEventListener("click", (e) => {
 			if (!isActive("textarea")) {
-				pauseScreen.classList.add("show-flex");
+				show(pauseScreen, "show-flex");
 			} else {
-				pauseScreen.classList.remove("show-flex");
+				(pauseScreen, "show-flex");
 			}
-		}, 1000);
+		});
 	} catch (appError) {
 		const notification = new Notification();
 
